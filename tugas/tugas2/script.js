@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
             li.innerHTML = `
                 <span class="todo-text">${todo}</span>
                 <div class="todo-actions">
-                    <button class="edit-btn" onclick="editTodo(${index})">✏️</button>
-                    <button class="delete-btn" onclick="deleteTodo(${index})">🗑️</button>
+                    <button class="edit-btn" onclick="editTodo(${index})">edit</button>
+                    <button class="delete-btn" onclick="deleteTodo(${index})">hapus</button>
                 </div>
             `;
             todoList.appendChild(li);
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.editTodo = (index) => {
-        const newTodo = prompt('Edit your todo:', todos[index]);
+        const newTodo = prompt('silahkan edit', todos[index]);
         if (newTodo !== null) {
             todos[index] = newTodo.trim();
             renderTodos();
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.deleteTodo = (index) => {
-        if (confirm('Are you sure you want to delete this todo?')) {
+        if (confirm('anda serius untuk mengghapus?')) {
             todos.splice(index, 1);
             renderTodos();
         }
